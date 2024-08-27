@@ -1,0 +1,33 @@
+
+#include <stdio.h>
+
+int operations(char *str) {
+    int i = 0;
+    int a = str[i]-48;
+    i++;
+    
+    while (str[i] != '\0') {
+        if (str[i] == 'A') {     
+            a &= str[i + 1]-48;
+            i += 2; 
+        } else if (str[i] == 'B') {
+            a |= str[i + 1]-48; 
+            i += 2;
+        } else if (str[i] == 'C') {
+            a ^= str[i + 1]-48;
+            i += 2;
+        } else {
+            i++;
+        }
+    }
+    
+    return a;
+}
+
+int main() {
+    char a[100];
+    scanf("%s", a); 
+    int result = operations(a); 
+    printf("%d\n", result); 
+    return 0;
+}
