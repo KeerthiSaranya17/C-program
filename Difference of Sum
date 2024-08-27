@@ -1,0 +1,19 @@
+#include <stdio.h>
+int sum(int,int);
+int main()
+{
+	printf("%d",sum(4,20));
+
+	return 0;
+}
+int sum(int n, int m) {
+	int sum=0,sum1=0;
+	for(int i=1; i<=m; i++) {
+		if(i%n==0)
+			sum=sum+i;
+		else
+			sum1=sum1+i;
+	}
+
+	return sum1-sum;
+}
