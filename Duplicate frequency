@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<stdlib.h>
+int *creat(int n){
+    return (int*)calloc(n,sizeof(int));
+}
+int *rcreat(int *a,int n){
+    return (int*)realloc(a,n*sizeof(int));
+}
+void add(int *a,int n){
+    for(int i=0;i<n;i++)
+        scanf("%d",a+i);
+}
+
+
+void disp(int *a,int n){
+    for(int i=0;i<n;i++)
+        printf("%d ",a[i]);
+    printf("\n");
+   
+}
+
+
+
+void dupfrq(int *a,int n){
+    int *b=creat(n);
+    int *c=creat(n);
+    int x=0,j;
+    for(int i=0;i<n;i++){
+        for(j=0;j<x;j++){
+            if(a[i]==b[j]){
+                c[j]+=1;
+                break;
+            }
+        }
+        if(j==x){
+            b[j]=a[i];
+            c[j]=1;
+            x++;
+        }
+    }
+    
+    b=rcreat(b,x);
+    c=rcreat(c,x);
+    disp(b,x);
+    disp(c,x);
+   
+}
+void main(){
+    int n=3;
+    int *a=creat(n);
+    add(a,n);
+    disp(a,n);
+    dupfrq(a,n);
+    disp(a,n);
+    
+}
