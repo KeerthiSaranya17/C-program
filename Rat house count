@@ -25,6 +25,6 @@ int main() {
     {
         scanf ("%d", &a[i]);
     }
-    printf ("%d", ratcounthouse(r, unit, a, n));
+    printf ("%d", housecount(r, unit, a, n));
     return 0;
 }
